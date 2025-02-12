@@ -1,0 +1,13 @@
+backend:
+ name: github
+ repo: Workshops-on-Demand/wod-frontend
+ branch: master
+ open_authoring: true
+
+publish_mode: editorial_workflow
+site_url: {{ WODFEFQDN }}
+display_url: http://{{ WODFEFQDN }}
+logo_url: /img/dev-thumb2.png
+
+media_folder: static/img
+public_folder: /img
