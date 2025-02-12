@@ -39,7 +39,7 @@ const renderScheduleCard = (workshop, i) => (
 );
 
 const Workshop = (props) => {
-  const getWorkshopsApi = APIDBURL+'/workshops?active=true';
+  const getWorkshopsApi = APIDB+'/workshops?active=true';
   const [workshops, setworkshops] = useState([]);
   const [error, setError] = useState('');
   const arr = [];
