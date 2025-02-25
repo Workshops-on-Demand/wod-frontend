@@ -5,8 +5,8 @@ backend:
  open_authoring: true
 
 publish_mode: editorial_workflow
-site_url: {{ WODFEFQDN }}
-display_url: http://{{ WODFEFQDN }}
+site_url: {{ WODFEEXTFQDN }}
+display_url: http://{{ WODFEEXTFQDN }}
 logo_url: /img/dev-thumb2.png
 
 media_folder: static/img
