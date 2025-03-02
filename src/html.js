@@ -9,7 +9,6 @@ export default function HTML(props) {
         <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
         <meta charSet="UTF-8" />
         <meta content="text/html; charset=utf-8" httpEquiv="Content-Type" />
-        <meta content="hpe.1.0" name="hp_design_version" />
         <meta
           content="WoD Community Portal, Juyter, JupyterHub, Knowledge Transfer, Workshop on Demand"
           name="keywords"
@@ -49,43 +48,9 @@ export default function HTML(props) {
           id="___gatsby"
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
-        {/* <div id="hpe_slim_footer" className="hpe_slim_footer" /> */}
+        {}
         {props.postBodyComponents}
-        {/* <div
-          dangerouslySetInnerHTML={{
-            __html: `
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.23.0/phaser.min.js" integrity="sha512-FgqGgzXpW1P9AjZuhLDIE5E5jH1ntIkrv3VKB36HoET27Ek2w60HenbIr21+rCu1qZ/Fvl64PkxNRP51a9m2Nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script type="text/javascript" src="https://www.hpe.com/global/metrics/easy/basic_measurement.js"></script>
-        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-        <script type="text/javascript">	
-          function pageLoaded() {
-            var header = document.getElementById('hpe_slim_header');	
-            var headerWrapper = document.getElementById('header_wrapper');	
-            var timer;	
-            headerWrapper.addEventListener('mouseover', function(event) {	
-              timer = setTimeout(function() {	
-                header.style.pointerEvents = "auto";	
-              }, 250);	
-            });	
-            headerWrapper.addEventListener('mouseleave', function(event) {	
-              clearTimeout(timer);	
-              header.style.pointerEvents = "none";	
-            });		
-          }
-
-          if (window.addEventListener) window.addEventListener('DOMContentLoaded', pageLoaded, false);	
-          else if (window.attachEvent) window.attachEvent('onload', pageLoaded);
-          window.digitalData = {
-              page: {
-                  pageInfo: {
-                      breadCrumbs: ['v2.0', 'us', 'en', 'non-aem:developer', 'devhome']
-                  }
-              }
-          }
-        </script>
-        `,
-          }}
-        /> */}
+        { }
       </body>
     </html>
   );

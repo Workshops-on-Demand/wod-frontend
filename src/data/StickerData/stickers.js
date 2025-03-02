@@ -22,16 +22,6 @@ export const Row1 = [
     img: '/img/wod/StickerPage/it-monster.png',
     icon: <User size="small" />,
   },
-  // take out after Ezmeral is announced
-  //   {
-  //     img: '/img/wod/StickerPage/grommet-sticker-kisscut.png',
-  //     icon: <User size="small" />,
-  //   },
-  // put back in ezmeral picture
-  {
-    img: '/img/wod/StickerPage/ezmeral.png',
-    icon: <User size="small" />,
-  },
 ];
 
 export const Row2 = [
@@ -64,16 +54,6 @@ export const Row3 = [
     backgroundColor: '#82FFF2',
     icon: <User size="small" />,
     img: '/img/wod/StickerPage/gremlinhat.png',
-  },
-  {
-    // Take out img and put back background Image & download
-    backgroundImage: 'url(/img/wod/StickerPage/ezmeralbackground.png)',
-    download: '/img/wod/StickerPage/ezmeralbackground.png',
-    icon: <Monitor size="small" />,
-    size: 'large',
-    // img: '/img/wod/StickerPage/dev-sticker-light.png',
-    // icon: <Monitor size="small" />,
-    // size: 'large',
   },
   {
     img: '/img/wod/StickerPage/letswod.png',
