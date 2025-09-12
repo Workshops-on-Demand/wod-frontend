@@ -587,7 +587,6 @@ const ScheduleCard = ({
   title,
   workshopList,
   location,
-  ezmeral,
   replayId,
   duration,
   popular,
@@ -706,47 +705,7 @@ const ScheduleCard = ({
 
   return (
     <>
-      {ezmeral ? (
-        <CardWrapper
-          pad="large"
-          justify="between"
-          background={backgroundColor}
-          round="medium"
-          overflow="hidden"
-        >
-          <Box direction="column">
-            <Box direction="column">
-              <Heading margin={{ vertical: 'small' }} level={3}>
-                {title}
-              </Heading>
-            </Box>
-            <Box>
-              <Text
-                margin={{ bottom: 'large' }}
-                size={size === 'small' ? 'large' : 'xlarge'}
-              >
-                {desc}
-              </Text>
-            </Box>
-          </Box>
-          <Box direction="row" gap="medium">
-            <Box direction="row" gap="medium">
-              <Button
-                alignSelf="start"
-                href={sessionLink}
-                target="_blank"
-                rel="noreferrer noopener"
-                label={
-                  <Box pad="xsmall">
-                    <Text color="text-strong">Learn more</Text>
-                  </Box>
-                }
-                secondary
-              />
-            </Box>
-          </Box>
-        </CardWrapper>
-      ) : (
+      {
         <CardWrapper
           justify="between"
           background={backgroundColor}
@@ -943,7 +902,7 @@ const ScheduleCard = ({
             )}
           </Box>
         </CardWrapper>
-      )}
+      }
     </>
   );
 };
@@ -959,7 +918,6 @@ ScheduleCard.propTypes = {
   title: PropTypes.string,
   workshopList: PropTypes.array,
   location: PropTypes.string,
-  ezmeral: PropTypes.bool,
   replayId: PropTypes.number,
   duration: PropTypes.number,
   popular: PropTypes.bool,
