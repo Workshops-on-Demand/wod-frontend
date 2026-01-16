@@ -587,7 +587,6 @@ const ScheduleCard = ({
   title,
   workshopList,
   location,
-  replayId,
   duration,
   popular,
 }) => {
@@ -859,7 +858,7 @@ const ScheduleCard = ({
                 dropAlign={{ top: 'bottom', right: 'right' }}
                 dropContent={
                   <Box pad="small">
-                    <Share workshopId={replayId} workshop />
+                    <Share workshop />
                   </Box>
                 }
                 alignSelf="start"
@@ -918,7 +917,6 @@ ScheduleCard.propTypes = {
   title: PropTypes.string,
   workshopList: PropTypes.array,
   location: PropTypes.string,
-  replayId: PropTypes.number,
   duration: PropTypes.number,
   popular: PropTypes.bool,
 };

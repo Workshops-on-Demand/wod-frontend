@@ -1,7 +1,7 @@
 import React from 'react';
 // eslint-disable-next-line max-len
 import GrommetThemeWrapper from '../components/wod/Grommet/GrommetThemeWrapper';
-import WorkshopsTemplate from './template';
+import WorkshopsTemplate from './workshops/template';
 
 const Workshops = (props) => {
   return (
