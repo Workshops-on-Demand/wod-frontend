@@ -13,9 +13,9 @@
         url: https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key
         state: present
       when:
-        - ansible_distribution == "Ubuntu"
-        - ansible_distribution_major_version >= "20"
-        - ansible_distribution_major_version < "26"
+        - ansible_facts['distribution'] == "Ubuntu"
+        - ansible_facts['distribution_major_version'] >= "20"
+        - ansible_facts['distribution_major_version'] < "26"
 
     - name: Nodejs 20.x repo needs to be used
       become: true
@@ -24,9 +24,9 @@
         repo: deb https://deb.nodesource.com/node_20.x nodistro main
         state: present
       when:
-        - ansible_distribution == "Ubuntu"
-        - ansible_distribution_major_version >= "20"
-        - ansible_distribution_major_version < "26"
+        - ansible_facts['distribution'] == "Ubuntu"
+        - ansible_facts['distribution_major_version'] >= "20"
+        - ansible_facts['distribution_major_version'] < "26"
 
     - name: Nodejs 20.x repo needs to be used with deb822
       become: true
@@ -41,8 +41,8 @@
         architectures: amd64
         signed_by: https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key
       when:
-        - ansible_distribution == "Ubuntu"
-        - ansible_distribution_major_version >= "26"
+        - ansible_facts['distribution'] == "Ubuntu"
+        - ansible_facts['distribution_major_version'] >= "26"
 
     - name: Nodejs repo needs to be pinned
       become: true
@@ -60,7 +60,7 @@
           Pin: origin deb.nodesource.com
           Pin-Priority: 600
       when:
-        - ansible_os_family == "Debian"
+        - ansible_facts['os_family'] == "Debian"
 
     - name: Ensure all non-required packages are uninstalled
       become: true
@@ -99,8 +99,8 @@
           - npm
         state: present
       when:
-        - ansible_os_family == "Debian"
-        - ansible_distribution_major_version <= "22"
+        - ansible_facts['distribution'] == "Ubuntu"
+        - ansible_facts['distribution_major_version'] <= "22"
 
     - name: Ensure all required DEB packages are installed
       become: true
@@ -114,7 +114,7 @@
           - yarn
           - netcat-openbsd
       when:
-        - ansible_os_family == "Debian"
+        - ansible_facts['os_family'] == "Debian"
 
     - name: Ensure all required RPM packages are installed
       become: true
@@ -128,8 +128,8 @@
           - psacct
           - netcat
       when:
-        - ansible_distribution == "CentOS"
-        - ansible_distribution_major_version >= "7"
+        - ansible_facts['distribution'] == "CentOS"
+        - ansible_facts['distribution_major_version'] >= "7"
 
     - name: Ensure required directories under /usr/local are owned by "{{ WODUSER }}"
       become: true
