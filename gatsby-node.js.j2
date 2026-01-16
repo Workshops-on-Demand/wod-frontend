@@ -25,9 +25,7 @@ exports.createPages = async ({ actions }) => {
     getSpecialBadges.data.forEach(({ id, title, description, badgeImg }) => {
       createPage({
         path: `/workshops/${id - 1}/special-badge`,
-        component: require.resolve(
-          './src/pages/workshops/template.js',
-        ),
+        component: require.resolve('./src/pages/workshops/template.js'),
         context: {
           specialBadgeId: id,
           title,
@@ -52,53 +50,18 @@ exports.createPages = async ({ actions }) => {
       url: workshopsApi,
     });
 
-    getWorkshops.data.forEach(({ id, name, description,workshop }) => {
-  //     createPage({
-  //       path: `/wod/replays/${id}`,
-  // eslint-disable-next-line max-len
-  //       component: require.resolve('./src/pages/wod/replays/template.js'),
-  //       context: {
-  //         workshopId: id,
-  //         workshopTitle: title,
-  //         workshopDesc: desc,
-  //         workshopImg: workshop && workshop.workshopImg,
-  //       },
-  //     });
+    getWorkshops.data.forEach(({ id, name, description, workshop }) => {
 
-  //     console.log(`Create pages /wod/replays/${id} from ${id}`);
-  //     console.log('------------------------------');
+    createPage({
+      path: `/workshop/${id}`,
+        component: require.resolve('./src/pages/workshops/template.js'),
+      context: {
+        workshopId: id,
+        workshopTitle: name,
+        workshopDesc: description,
+      },
+    });
 
-      createPage({
-        path: `/workshop/${id}`,
-		  // TODO: Really ? rather workshop no ?
-        component: require.resolve('./src/pages/replays/template.js'),
-        context: {
-          workshopId: id,
-          workshopTitle: name,
-          workshopDesc: description,
-          workshopImg: workshop && workshop.workshopImg,
-        },
-      });
-
-  //     console.log(`Create pages /wod/workshop/${id} from ${id}`);
-  //     console.log('------------------------------');
-
-  //     createPage({
-  //       path: `/wod/workshop/${id}/finisher-badge`,
-  // eslint-disable-next-line max-len
-  //       component: require.resolve('./src/pages/wod/replays/template.js'),
-  //       context: {
-  //         workshopId: id,
-  //         workshopTitle: title,
-  //         workshopDesc: desc,
-  //         workshopImg: workshop && workshop.badgeImg,
-  //       },
-  //     });
-
-  //     console.log(
-  //       `Create pages /wod/workshop/${id}/finisher-badge from ${id}`,
-  //     );
-  //     console.log('------------------------------');
     });
   } catch (error) {
     console.log('error: ', error);
