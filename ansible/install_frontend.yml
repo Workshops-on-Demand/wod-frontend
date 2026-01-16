@@ -111,10 +111,29 @@
           - ldap-utils
           - libproc-processtable-perl
           - acct
-          - yarn
           - netcat-openbsd
       when:
-        - ansible_facts['os_family'] == "Debian"
+        - ansible_facts['distribution'] == "Ubuntu"
+
+    - name: Ensure all required DEB packages are installed (Ubuntu < 26)
+      become: true
+      become_user: root
+      ansible.builtin.apt:
+        pkg:
+          - yarn
+      when:
+        - ansible_facts['distribution'] == "Ubuntu"
+        - ansible_facts['distribution_major_version'] < "26"
+
+    - name: Ensure all required DEB packages are installed (Ubuntu >= 26)
+      become: true
+      become_user: root
+      ansible.builtin.apt:
+        pkg:
+          - yarnpkg
+      when:
+        - ansible_facts['distribution'] == "Ubuntu"
+        - ansible_facts['distribution_major_version'] >= "26"
 
     - name: Ensure all required RPM packages are installed
       become: true
