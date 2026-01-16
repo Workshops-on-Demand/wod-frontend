@@ -13,7 +13,9 @@
         url: https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key
         state: present
       when:
-        - ansible_os_family == "Debian"
+        - ansible_distribution == "Ubuntu"
+        - ansible_distribution_major_version >= "20"
+        - ansible_distribution_major_version < "26"
 
     - name: Nodejs 20.x repo needs to be used
       become: true
@@ -22,7 +24,23 @@
         repo: deb https://deb.nodesource.com/node_20.x nodistro main
         state: present
       when:
-        - ansible_os_family == "Debian"
+        - ansible_distribution == "Ubuntu"
+        - ansible_distribution_major_version >= "20"
+        - ansible_distribution_major_version < "26"
+
+    - name: Nodejs 20.x repo needs to be used with deb822
+      become: true
+      become_user: root
+      ansible.builtin.deb822_repository:
+        types: deb
+        uris: https://deb.nodesource.com/node_20.x 
+        suites: "nodistro"
+        components: stable
+        architectures: amd64
+        signed_by: https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key
+      when:
+        - ansible_distribution == "Ubuntu"
+        - ansible_distribution_major_version >= "26"
 
     - name: Nodejs repo needs to be pinned
       become: true
