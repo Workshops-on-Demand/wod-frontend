@@ -91,7 +91,6 @@
           - ldap-utils
           - libproc-processtable-perl
           - acct
-          - yarn
           - netcat-openbsd
       when:
         - ansible_os_family == "Debian"
