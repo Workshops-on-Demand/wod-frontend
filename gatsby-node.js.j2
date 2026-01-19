@@ -25,9 +25,7 @@ exports.createPages = async ({ actions }) => {
     getSpecialBadges.data.forEach(({ id, title, description, badgeImg }) => {
       createPage({
         path: `/workshops/${id - 1}/special-badge`,
-        component: require.resolve(
-          './src/pages/workshops/template.js',
-        ),
+        component: require.resolve('./src/pages/workshops/template.js'),
         context: {
           specialBadgeId: id,
           title,
@@ -68,17 +66,19 @@ exports.createPages = async ({ actions }) => {
   //     console.log(`Create pages /wod/replays/${id} from ${id}`);
   //     console.log('------------------------------');
 
-      createPage({
-        path: `/workshop/${id}`,
+    createPage({
+      path: `/workshop/${id}`,
 		  // TODO: Really ? rather workshop no ?
         // component: require.resolve('./src/pages/replays/template.js'),
-        context: {
-          workshopId: id,
-          workshopTitle: name,
-          workshopDesc: description,
-          // workshopImg: workshop && workshop.workshopImg,
-        },
-      });
+        component: require.resolve('./src/pages/workshops/template.js'),
+      context: {
+        workshopId: id,
+		// ?? Why
+        workshopTitle: name,
+        // workshopDesc: description,
+        workshopImg: workshop && workshop.workshopImg,
+      },
+    });
 
   //     console.log(`Create pages /wod/workshop/${id} from ${id}`);
   //     console.log('------------------------------');
