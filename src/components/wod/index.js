@@ -3,7 +3,6 @@ import Header from './Header';
 import PageHeader from './PageHeading';
 import Layout from './Layout';
 import { Card, CardGrid, ScheduleCard } from './Card';
-import { VideoList, Video } from './Video';
 
 export {
   ButtonSplit,
@@ -13,6 +12,4 @@ export {
   PageHeader,
   Layout,
   ScheduleCard,
-  Video,
-  VideoList,
 };
