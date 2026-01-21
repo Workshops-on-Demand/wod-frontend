@@ -71,7 +71,7 @@ exports.createPages = async ({ actions }) => {
 		  // TODO: Really ? rather workshop no ?
         // component: require.resolve('./src/pages/replays/template.js'),
         component: require.resolve('./src/pages/workshops/template.js'),
-      //context: {
+      context: {
         workshopId: id,
         workshopTitle: name,
         workshopDesc: description,
