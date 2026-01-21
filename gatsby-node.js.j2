@@ -50,7 +50,7 @@ exports.createPages = async ({ actions }) => {
       url: workshopsApi,
     });
 
-    getWorkshops.data.forEach(({ id, name, description,workshop }) => {
+    getWorkshops.data.forEach(({ id, name, description, workshop }) => {
   //     createPage({
   //       path: `/wod/replays/${id}`,
   // eslint-disable-next-line max-len
@@ -71,12 +71,11 @@ exports.createPages = async ({ actions }) => {
 		  // TODO: Really ? rather workshop no ?
         // component: require.resolve('./src/pages/replays/template.js'),
         component: require.resolve('./src/pages/workshops/template.js'),
-      context: {
+      //context: {
         workshopId: id,
-		// ?? Why
         workshopTitle: name,
-        // workshopDesc: description,
-        workshopImg: workshop && workshop.workshopImg,
+        workshopDesc: description,
+        //workshopImg: workshop && workshop.workshopImg,
       },
     });
 
