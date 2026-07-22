@@ -1,4 +1,3 @@
-/* (C) Copyright 2019 Hewlett Packard Enterprise Development LP. */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Heading } from 'grommet';
