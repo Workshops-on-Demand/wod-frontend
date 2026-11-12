@@ -6,6 +6,9 @@
     - name: Base setup for a base system
       ansible.builtin.include_tasks: "{{ WODINSANSDIR }}/install_base_system.yml"
 
+    - name: NodeJS setup
+      ansible.builtin.include_tasks: "{{ WODINSANSDIR }}/install_nodesource.yml"
+
     - name: Add ubuntu updates GPG Key to APT
       become: true
       become_user: root
@@ -14,43 +17,6 @@
         state: present
       when:
         - ansible_os_family == "Debian"
-
-    - name: Nodejs 20.x repo needs to be used
-      become: true
-      become_user: root
-      ansible.builtin.apt_repository:
-        repo: deb https://deb.nodesource.com/node_20.x nodistro main
-        state: present
-      when:
-        - ansible_os_family == "Debian"
-
-    - name: Nodejs repo needs to be pinned
-      become: true
-      become_user: root
-      ansible.builtin.blockinfile:
-        path: /etc/apt/preferences.d/nodejs
-        owner: root
-        group: root
-        mode: "0644"
-        backup: true
-        create: true
-        state: present
-        block: |
-          Package: nodejs
-          Pin: origin deb.nodesource.com
-          Pin-Priority: 600
-      when:
-        - ansible_os_family == "Debian"
-
-    - name: Ensure all non-required packages are uninstalled
-      become: true
-      become_user: root
-      ansible.builtin.package:
-        name:
-          - nodejs
-          - libnode-dev
-          - libnode72
-        state: absent
 
     - name: Ensure all required packages are installed
       become: true
